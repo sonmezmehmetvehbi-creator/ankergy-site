@@ -39,7 +39,7 @@ export default function Home() {
       {/* NAV */}
       <nav className={scrolled ? `${styles.nav} ${styles['nav--scrolled']}` : styles.nav}>
         <div className={styles['nav__inner']}>
-          <img src="/ankergy-logo.png" alt="Ankergy" className={styles['nav__logo']} />
+          <img src="/ankergy-logo.png" alt="Ankergy" className={styles['nav__logo']} style={{filter:"brightness(0) invert(1)"}} />
           <div className={styles['nav__links']}>
             <a href="#how">How it works</a>
             <a href="#products">Products</a>
@@ -139,19 +139,39 @@ export default function Home() {
               <h2 className={styles['section__title']}>Three steps to a lower bill</h2>
             </div>
             <div className={styles['steps']}>
-              {[
-                { n:'01', ico:'📦', title:'Get the hardware free', body:'We ship 10 smart plugs and a thermostat to your door. No payment required upfront.' },
-                { n:'02', ico:'📱', title:'App optimizes your usage', body:'Ankergy learns your patterns and automatically shifts device usage to off-peak hours.' },
-                { n:'03', ico:'💸', title:'Pay from your savings', body:'Monthly payments come out of what you saved. No savings? No charge. It\'s that simple.' },
-              ].map((s,i) => (
-                <div key={i} className={styles['step']}>
-                  <div className={styles['step__num']}>{s.n}</div>
-                  <div className={styles['step__ico']}>{s.ico}</div>
-                  <h3 className={styles['step__title']}>{s.title}</h3>
-                  <p className={styles['step__body']}>{s.body}</p>
-                  {i < 2 && <div className={styles['step__arrow']}>→</div>}
+              <div className={styles['step']}>
+                <div className={styles['step__line']} />
+                <div className={styles['step__left']}>
+                  <span className={styles['step__tag']}>Step 1</span>
+                  <h3 className={styles['step__title']}>Get the hardware free</h3>
+                  <p className={styles['step__body']}>We ship 10 smart plugs (SP-1) and a thermostat (T-1) directly to your door. You pay nothing upfront.</p>
                 </div>
-              ))}
+                <div className={styles['step__right']}>
+                  <div className={styles['step__icon']}>📦</div>
+                </div>
+              </div>
+              <div className={styles['step']}>
+                <div className={styles['step__line']} />
+                <div className={styles['step__left']}>
+                  <span className={styles['step__tag']}>Step 2</span>
+                  <h3 className={styles['step__title']}>App optimizes your usage</h3>
+                  <p className={styles['step__body']}>Ankergy learns your home's patterns and automatically shifts high-draw devices to off-peak rate windows.</p>
+                </div>
+                <div className={styles['step__right']}>
+                  <div className={styles['step__icon']}>📱</div>
+                </div>
+              </div>
+              <div className={styles['step']}>
+                <div className={styles['step__line']} />
+                <div className={styles['step__left']}>
+                  <span className={styles['step__tag']}>Step 3</span>
+                  <h3 className={styles['step__title']}>Pay from your savings</h3>
+                  <p className={styles['step__body']}>Monthly payments are drawn directly from what you saved on your bill. No savings? No charge.</p>
+                </div>
+                <div className={styles['step__right']}>
+                  <div className={styles['step__icon']}>💸</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -326,9 +346,10 @@ export default function Home() {
       <footer className={styles['footer']}>
         <div className={styles['container']}>
           <div className={styles['footer__inner']}>
-            <img src="/ankergy-logo.png" alt="Ankergy" className={styles['footer__logo']} />
+            <img src="/ankergy-logo.png" alt="Ankergy" className={styles['footer__logo']} style={{filter:"brightness(0) invert(1)"}} />
             <p className={styles['footer__tag']}>Smart energy for every home.</p>
             <p className={styles['footer__copy']}>© 2026 Ankergy. All rights reserved.</p>
+            <a href="mailto:ankergyofficial@gmail.com" className={styles['footer__email']}>ankergyofficial@gmail.com</a>
           </div>
         </div>
       </footer>
