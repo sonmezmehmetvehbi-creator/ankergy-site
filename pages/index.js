@@ -46,7 +46,7 @@ export default function Home() {
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
           <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'40px',width:'auto'}} />
-          <div style={{display:'flex',gap:'2rem',flex:1}}>
+          <div className='nav-links' style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
                 onMouseOver={e=>e.target.style.color='#fff'} onMouseOut={e=>e.target.style.color='#4A6280'}>{l}</a>
@@ -74,7 +74,7 @@ export default function Home() {
             backgroundImage:'linear-gradient(rgba(12,192,176,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(12,192,176,0.025) 1px,transparent 1px)',
             backgroundSize:'60px 60px',pointerEvents:'none',
           }} />
-          <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',position:'relative',zIndex:1}}>
+          <div className='hero-grid' style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',position:'relative',zIndex:1}}>
             <div>
               <div style={{
                 display:'inline-block',fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.09em',textTransform:'uppercase',
@@ -110,7 +110,7 @@ export default function Home() {
             </div>
 
             {/* iPhone Dashboard */}
-            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'16px'}}>
+            <div className='hero-phone' style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'16px'}}>
               <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'36px',width:'auto'}} />
               <div style={{
                 width:'272px',
@@ -281,7 +281,7 @@ export default function Home() {
             <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'5rem'}}>Hardware that pays for itself</h2>
 
             {/* Smart Plug */}
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',marginBottom:'6rem'}}>
+            <div className='products-grid' style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',marginBottom:'6rem'}}>
               <div style={{borderRadius:'24px',overflow:'hidden',background:'#F0F0F0',aspectRatio:'1',display:'flex',alignItems:'center',justifyContent:'center',padding:'3rem'}}>
                 <img src="/smart-plug.png" alt="Ankergy Smart Plug SP-1" style={{width:'100%',height:'100%',objectFit:'contain'}} />
               </div>
@@ -303,7 +303,7 @@ export default function Home() {
             </div>
 
             {/* Thermostat */}
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
+            <div className='products-grid' style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
               <div>
                 <div style={{display:'inline-block',fontSize:'0.72rem',fontWeight:700,letterSpacing:'0.07em',textTransform:'uppercase',color:'#F4A261',background:'rgba(244,162,97,0.1)',border:'1px solid rgba(244,162,97,0.2)',padding:'0.25rem 0.75rem',borderRadius:'100px',marginBottom:'1rem'}}>T-1 · 1 unit</div>
                 <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'2.5rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',lineHeight:1.1,marginBottom:'1rem'}}>Smart Thermostat</h3>
@@ -328,7 +328,7 @@ export default function Home() {
 
         {/* SAVINGS */}
         <section id="savings" style={{padding:'7rem 2rem'}}>
-          <div style={{maxWidth:'1120px',margin:'0 auto',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6rem',alignItems:'center'}}>
+          <div className='savings-grid' style={{maxWidth:'1120px',margin:'0 auto',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6rem',alignItems:'center'}}>
             <div>
               <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>Savings calculator</p>
               <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'1rem'}}>What could you save?</h2>
@@ -376,7 +376,7 @@ export default function Home() {
           <div style={{maxWidth:'1120px',margin:'0 auto'}}>
             <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>The team</p>
             <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'4rem'}}>Built by people who care about energy</h2>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}}>
+            <div className='team-grid' style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}}>
               {team.map((m,i) => (
                 <div key={i} style={{
                   background:'#0C1524',border:'1px solid rgba(12,192,176,0.12)',
@@ -413,7 +413,7 @@ export default function Home() {
                 You are on the list — we will be in touch soon.
               </div>
             ) : (
-              <form style={{display:'flex',gap:'0.75rem',marginBottom:'1rem'}} onSubmit={e=>{e.preventDefault();if(email)setSubmitted(true)}}>
+              <form className='waitlist-form' style={{display:'flex',gap:'0.75rem',marginBottom:'1rem'}} onSubmit={e=>{e.preventDefault();if(email)setSubmitted(true)}}>
                 <input type="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} required
                   style={{flex:1,background:'#0C1524',border:'1px solid rgba(12,192,176,0.2)',borderRadius:'12px',padding:'0.875rem 1.25rem',fontSize:'1rem',color:'#fff',fontFamily:'Inter,sans-serif',outline:'none'}} />
                 <button type="submit" style={{background:'#0CC0B0',color:'#05090F',fontWeight:700,fontSize:'0.95rem',padding:'0.875rem 1.75rem',borderRadius:'12px',border:'none',cursor:'pointer',whiteSpace:'nowrap',fontFamily:'Inter,sans-serif'}}>
@@ -446,6 +446,19 @@ export default function Home() {
         body { background: #05090F; }
         a { color: inherit; }
         img { display: block; max-width: 100%; }
+
+        @media (max-width: 768px) {
+          .nav-links { display: none !important; }
+          .hero-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+          .hero-phone { display: none !important; }
+          .hero-title { font-size: 2.8rem !important; }
+          .products-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+          .savings-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+          .team-grid { grid-template-columns: 1fr 1fr !important; }
+          .waitlist-form { flex-direction: column !important; }
+          .hero-stats { gap: 1.5rem !important; }
+          .section-pad { padding: 4rem 1.25rem !important; }
+        }
       `}</style>
     </>
   )
