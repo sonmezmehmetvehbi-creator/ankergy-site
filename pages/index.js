@@ -45,7 +45,7 @@ export default function Home() {
         display:'flex', alignItems:'center',
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'56px',width:'auto'}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'72px',width:'auto'}} />
           <div className='nav-links' style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
@@ -111,7 +111,7 @@ export default function Home() {
 
             {/* iPhone Dashboard */}
             <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'20px'}}>
-              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'64px',width:'auto'}} />
+              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'100px',width:'auto'}} />
               {/* iPhone 15 Pro Frame */}
               <div style={{
                 position:'relative',
@@ -176,12 +176,12 @@ export default function Home() {
                         <div style={{background:'#0D1829',borderRadius:'16px',padding:'12px',border:'1px solid rgba(74,222,128,0.15)'}}>
                           <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#4ADE80',textTransform:'uppercase',marginBottom:'8px'}}>Live Savings</div>
                           <div style={{width:'28px',height:'28px',borderRadius:'50%',background:'rgba(74,222,128,0.15)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'14px',marginBottom:'6px'}}>🌿</div>
-                          <div style={{fontSize:'22px',fontWeight:800,color:'#4ADE80',fontFamily:'Sora,sans-serif',lineHeight:1}}>$1.76</div>
+                          <div style={{fontSize:'22px',fontWeight:800,color:'#4ADE80',fontFamily:'Sora,sans-serif',lineHeight:1}}>$15.40</div>
                           <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>est. saved today</div>
                         </div>
                         <div style={{background:'#0D1829',borderRadius:'16px',padding:'12px',border:'1px solid rgba(59,143,255,0.15)'}}>
                           <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#3B8FFF',textTransform:'uppercase',marginBottom:'8px'}}>Today</div>
-                          <div style={{fontSize:'22px',fontWeight:800,color:'#fff',fontFamily:'Sora,sans-serif',lineHeight:1,marginTop:'8px'}}>$18.27</div>
+                          <div style={{fontSize:'22px',fontWeight:800,color:'#fff',fontFamily:'Sora,sans-serif',lineHeight:1,marginTop:'8px'}}>$4.82</div>
                           <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>cost so far</div>
                           <div style={{background:'rgba(59,111,232,0.2)',borderRadius:'8px',padding:'3px 8px',marginTop:'6px',display:'inline-flex',alignItems:'center',gap:'4px'}}>
                             <span style={{fontSize:'8px',color:'#3B8FFF'}}>⚡</span>
@@ -207,7 +207,7 @@ export default function Home() {
                               <circle cx="30" cy="30" r="22" fill="none" stroke="#0CC0B0" strokeWidth="9" strokeDasharray="2 136" strokeDashoffset="-102" strokeLinecap="round"/>
                             </svg>
                             <div style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-                              <div style={{fontSize:'9px',fontWeight:800,color:'#fff',lineHeight:1}}>$18.27</div>
+                              <div style={{fontSize:'9px',fontWeight:800,color:'#fff',lineHeight:1}}>$4.82</div>
                               <div style={{fontSize:'6px',color:'#4A6280'}}>today</div>
                             </div>
                           </div>
