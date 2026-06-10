@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ankergy — Know every watt. Save every dollar.</title>
+        <title>Alvera Energy — Know every watt. Save every dollar.</title>
         <meta name="description" content="Smart plugs and a thermostat that pay for themselves. $0 upfront." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +45,7 @@ export default function Home() {
         display:'flex', alignItems:'center',
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'72px',width:'auto'}} />
+          <img src="/alvera-logo.png" alt="Alvera Energy" style={{height:'72px',width:'auto'}} />
           <div className='nav-links' style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
@@ -86,7 +86,7 @@ export default function Home() {
                 <span style={{color:'#0CC0B0'}}>Save every dollar.</span>
               </h1>
               <p style={{fontSize:'1.05rem',color:'#4A6280',maxWidth:'480px',marginBottom:'2.5rem',lineHeight:1.75}}>
-                Ankergy ships smart plugs and a thermostat to your home — the app optimizes everything automatically. Pay <strong style={{color:'#fff'}}>$0 upfront.</strong> Pay monthly from what you save.
+                Alvera Energy ships smart plugs and a thermostat to your home — the app optimizes everything automatically. Pay <strong style={{color:'#fff'}}>$0 upfront.</strong> Pay monthly from what you save.
               </p>
               <div style={{display:'flex',alignItems:'center',gap:'2rem',marginBottom:'2.5rem',flexWrap:'wrap'}}>
                 {[['$61+','avg monthly savings'],['2 mo','avg payback'],['$0','upfront cost']].map(([n,l],i) => (
@@ -111,7 +111,7 @@ export default function Home() {
 
             {/* iPhone Dashboard */}
             <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'20px'}}>
-              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'100px',width:'auto'}} />
+              <img src="/alvera-logo.png" alt="Alvera Energy" style={{height:'100px',width:'auto'}} />
               {/* iPhone 15 Pro Frame */}
               <div style={{
                 position:'relative',
@@ -265,7 +265,7 @@ export default function Home() {
             <div>
               {[
                 {tag:'Step 1',ico:'📦',title:'Get the hardware free',body:'We ship 10 smart plugs (SP-1) and a thermostat (T-1) directly to your door. You pay nothing upfront — no credit card required.'},
-                {tag:'Step 2',ico:'📱',title:'App optimizes your usage',body:'Ankergy learns your home\'s patterns and automatically shifts high-draw devices to off-peak rate windows, cutting your bill passively.'},
+                {tag:'Step 2',ico:'📱',title:'App optimizes your usage',body:'Alvera Energy learns your home\'s patterns and automatically shifts high-draw devices to off-peak rate windows, cutting your bill passively.'},
                 {tag:'Step 3',ico:'💸',title:'Pay from your savings',body:'Monthly payments are drawn directly from what you saved on your bill. No savings? No charge. It\'s that simple.'},
               ].map((s,i) => (
                 <div key={i} style={{
@@ -299,13 +299,13 @@ export default function Home() {
         {/* PRODUCTS */}
         <section id="products" style={{padding:'7rem 2rem',background:'#080E1A'}}>
           <div style={{maxWidth:'1120px',margin:'0 auto'}}>
-            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>The Ankergy Bundle</p>
+            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>The Alvera Bundle</p>
             <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'5rem'}}>Hardware that pays for itself</h2>
 
             {/* Smart Plug */}
             <div className='products-grid' style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',marginBottom:'6rem'}}>
               <div style={{borderRadius:'24px',overflow:'hidden',background:'#F0F0F0',aspectRatio:'1',display:'flex',alignItems:'center',justifyContent:'center',padding:'3rem'}}>
-                <img src="/smart-plug.png" alt="Ankergy Smart Plug SP-1" style={{width:'100%',height:'100%',objectFit:'contain'}} />
+                <img src="/smart-plug.png" alt="Alvera Smart Plug SP-1" style={{width:'100%',height:'100%',objectFit:'contain'}} />
               </div>
               <div>
                 <div style={{display:'inline-block',fontSize:'0.72rem',fontWeight:700,letterSpacing:'0.07em',textTransform:'uppercase',color:'#0CC0B0',background:'rgba(12,192,176,0.1)',border:'1px solid rgba(12,192,176,0.2)',padding:'0.25rem 0.75rem',borderRadius:'100px',marginBottom:'1rem'}}>SP-1 · 10 units</div>
@@ -342,7 +342,7 @@ export default function Home() {
                 </div>
               </div>
               <div style={{borderRadius:'24px',overflow:'hidden',background:'#E8EDE8',aspectRatio:'1.5',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                <img src="/thermostat.webp" alt="Ankergy Smart Thermostat T-1" style={{width:'100%',height:'100%',objectFit:'cover'}} />
+                <img src="/thermostat.webp" alt="Alvera Smart Thermostat T-1" style={{width:'100%',height:'100%',objectFit:'cover'}} />
               </div>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function Home() {
             <div>
               <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>Savings calculator</p>
               <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'1rem'}}>What could you save?</h2>
-              <p style={{color:'#4A6280',fontSize:'0.95rem',lineHeight:1.7,marginBottom:'2rem'}}>Ankergy users cut their electricity bill by an average of 22% in the first month.</p>
+              <p style={{color:'#4A6280',fontSize:'0.95rem',lineHeight:1.7,marginBottom:'2rem'}}>Alvera Energy users cut their electricity bill by an average of 22% in the first month.</p>
               <div style={{fontFamily:'Sora,sans-serif',fontSize:'4rem',fontWeight:800,color:'#0CC0B0',letterSpacing:'-0.03em',lineHeight:1,marginBottom:'0.25rem'}}>
                 ${savings}<span style={{fontSize:'1.5rem',color:'#4A6280',fontFamily:'Inter,sans-serif',fontWeight:400}}>/mo</span>
               </div>
@@ -451,10 +451,10 @@ export default function Home() {
 
       <footer style={{borderTop:'1px solid rgba(255,255,255,0.05)',padding:'3rem 2rem',background:'#05090F'}}>
         <div style={{maxWidth:'1120px',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',gap:'0.5rem',textAlign:'center'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'28px',width:'auto',marginBottom:'0.5rem'}} />
+          <img src="/alvera-logo.png" alt="Alvera Energy" style={{height:'28px',width:'auto',marginBottom:'0.5rem'}} />
           <p style={{fontSize:'0.875rem',color:'#4A6280'}}>Smart energy for every home.</p>
-          <a href="mailto:ankergyofficial@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>ankergyofficial@gmail.com</a>
-          <p style={{fontSize:'0.75rem',color:'#4A6280',opacity:0.5}}>© 2026 Ankergy. All rights reserved.</p>
+          <a href="mailto:alveraofficial@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>alveraofficial@gmail.com</a>
+          <p style={{fontSize:'0.75rem',color:'#4A6280',opacity:0.5}}>© 2026 Alvera. All rights reserved.</p>
         </div>
       </footer>
 
