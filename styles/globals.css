@@ -1,28 +1,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 :root {
-  --navy: #060C1A;
-  --navy2: #0A1628;
-  --card: #0D1E35;
-  --card2: #112240;
+  --bg: #05090F;
+  --bg2: #080E1A;
+  --card: #0C1524;
+  --card2: #101E30;
   --teal: #0CC0B0;
-  --teal-dim: rgba(12,192,176,0.12);
+  --tealDim: rgba(12,192,176,0.1);
   --amber: #F4A261;
   --white: #FFFFFF;
-  --light: #E8F4F8;
-  --muted: #5A7A99;
-  --border: rgba(12,192,176,0.15);
+  --light: #C8D8E8;
+  --muted: #4A6280;
+  --border: rgba(12,192,176,0.12);
+  --borderLight: rgba(255,255,255,0.06);
 }
-
 body {
-  background: #060C1A;
-  color: #C8D8E8;
+  background: var(--bg);
+  color: var(--light);
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
-
 a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
