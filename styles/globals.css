@@ -2,6 +2,20 @@
 
 html { scroll-behavior: smooth; }
 
+:root {
+  --navy: #060C1A;
+  --navy2: #0A1628;
+  --card: #0D1E35;
+  --card2: #112240;
+  --teal: #0CC0B0;
+  --teal-dim: rgba(12,192,176,0.12);
+  --amber: #F4A261;
+  --white: #FFFFFF;
+  --light: #E8F4F8;
+  --muted: #5A7A99;
+  --border: rgba(12,192,176,0.15);
+}
+
 body {
   background: #060C1A;
   color: #C8D8E8;

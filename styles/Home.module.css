@@ -1,19 +1,5 @@
-/* ── TOKENS ── */
-:root {
-  --navy: #060C1A;
-  --navy2: #0A1628;
-  --card: #0D1E35;
-  --card2: #112240;
-  --teal: #0CC0B0;
-  --teal-dim: rgba(12,192,176,0.12);
-  --amber: #F4A261;
-  --white: #FFFFFF;
-  --light: #E8F4F8;
-  --muted: #5A7A99;
-  --border: rgba(12,192,176,0.15);
-}
 
-/* ── NAV ── */
+/* â”€â”€ NAV â”€â”€ */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -65,10 +51,10 @@
   color: var(--white);
 }
 
-/* ── MAIN ── */
+/* â”€â”€ MAIN â”€â”€ */
 .main { padding-top: 64px; }
 
-/* ── HERO ── */
+/* â”€â”€ HERO â”€â”€ */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -173,7 +159,7 @@
   transform: translateY(-2px);
 }
 
-/* ── SECTIONS ── */
+/* â”€â”€ SECTIONS â”€â”€ */
 .section {
   max-width: 1100px;
   margin: 0 auto;
@@ -197,7 +183,7 @@
   margin-bottom: 3rem;
 }
 
-/* ── HOW IT WORKS ── */
+/* â”€â”€ HOW IT WORKS â”€â”€ */
 .steps {
   display: flex;
   align-items: flex-start;
@@ -238,7 +224,7 @@
   opacity: 0.5;
 }
 
-/* ── PRODUCTS ── */
+/* â”€â”€ PRODUCTS â”€â”€ */
 .products {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -324,7 +310,7 @@
   gap: 0.5rem;
 }
 .productFeatures li::before {
-  content: '✓';
+  content: 'âœ“';
   color: var(--teal);
   font-weight: 700;
   font-size: 0.8rem;
@@ -342,7 +328,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* ── SAVINGS ── */
+/* â”€â”€ SAVINGS â”€â”€ */
 .savingsSection {
   background: var(--navy2);
   border-top: 1px solid var(--border);
@@ -449,7 +435,7 @@
   margin: 0.25rem 0;
 }
 
-/* ── WAITLIST ── */
+/* â”€â”€ WAITLIST â”€â”€ */
 .waitlistSection {
   padding: 8rem 2rem;
   text-align: center;
@@ -538,7 +524,7 @@
   margin-bottom: 1rem;
 }
 
-/* ── FOOTER ── */
+/* â”€â”€ FOOTER â”€â”€ */
 .footer {
   border-top: 1px solid var(--border);
   padding: 2.5rem 2rem;
@@ -561,7 +547,7 @@
   opacity: 0.6;
 }
 
-/* ── RESPONSIVE ── */
+/* â”€â”€ RESPONSIVE â”€â”€ */
 @media (max-width: 768px) {
   .navLinks { display: none; }
   .steps { flex-direction: column; }
