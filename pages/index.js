@@ -45,7 +45,7 @@ export default function Home() {
         display:'flex', alignItems:'center',
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'40px',width:'auto'}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'52px',width:'auto'}} />
           <div className='nav-links' style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
@@ -111,18 +111,31 @@ export default function Home() {
 
             {/* iPhone Dashboard */}
             <div className='hero-phone' style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'16px'}}>
-              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'36px',width:'auto'}} />
+              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'48px',width:'auto'}} />
               <div style={{
-                width:'272px',
-                background:'#080E1C',
-                borderRadius:'50px',
-                border:'8px solid #1A2235',
-                boxShadow:'0 0 0 1.5px #2A3450, 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(12,192,176,0.1)',
+                width:'280px',
+                background:'#1A1A1A',
+                borderRadius:'54px',
+                border:'none',
+                boxShadow:'inset 0 0 0 1px rgba(255,255,255,0.15), inset 0 0 0 2px rgba(0,0,0,0.8), 0 0 0 8px #2A2A2A, 0 0 0 9px rgba(255,255,255,0.08), 0 40px 100px rgba(0,0,0,0.8), 0 0 60px rgba(12,192,176,0.08)',
                 overflow:'hidden',
                 position:'relative',
+                padding:'2px',
               }}>
-                {/* Notch */}
-                <div style={{width:'100px',height:'26px',background:'#080E1C',borderRadius:'0 0 18px 18px',margin:'0 auto',position:'relative',zIndex:10}} />
+                {/* Side buttons */}
+                <div style={{position:'absolute',left:'-10px',top:'120px',width:'4px',height:'32px',background:'#2A2A2A',borderRadius:'2px 0 0 2px',boxShadow:'-1px 0 0 rgba(255,255,255,0.1)'}} />
+                <div style={{position:'absolute',left:'-10px',top:'162px',width:'4px',height:'54px',background:'#2A2A2A',borderRadius:'2px 0 0 2px',boxShadow:'-1px 0 0 rgba(255,255,255,0.1)'}} />
+                <div style={{position:'absolute',left:'-10px',top:'226px',width:'4px',height:'54px',background:'#2A2A2A',borderRadius:'2px 0 0 2px',boxShadow:'-1px 0 0 rgba(255,255,255,0.1)'}} />
+                <div style={{position:'absolute',right:'-10px',top:'160px',width:'4px',height:'80px',background:'#2A2A2A',borderRadius:'0 2px 2px 0',boxShadow:'1px 0 0 rgba(255,255,255,0.1)'}} />
+                {/* Inner screen bezel */}
+                <div style={{background:'#080E1C',borderRadius:'52px',overflow:'hidden',position:'relative'}}>
+                {/* Dynamic island */}
+                <div style={{display:'flex',justifyContent:'center',paddingTop:'12px',paddingBottom:'4px',background:'#080E1C'}}>
+                  <div style={{width:'110px',height:'32px',background:'#000',borderRadius:'20px',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 12px'}}>
+                    <div style={{width:'10px',height:'10px',borderRadius:'50%',background:'#1A1A1A',border:'1px solid rgba(255,255,255,0.1)'}} />
+                    <div style={{width:'6px',height:'6px',borderRadius:'50%',background:'#222'}} />
+                  </div>
+                </div>
                 {/* Status bar */}
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'2px 18px 8px',fontSize:'10px',fontWeight:600,color:'#fff'}}>
                   <span>10:26</span>
@@ -218,6 +231,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
+                </div>
                 </div>
               </div>
             </div>
