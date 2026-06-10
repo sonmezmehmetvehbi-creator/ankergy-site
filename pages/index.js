@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -20,339 +19,351 @@ export default function Home() {
 
   const team = [
     { name: 'Mehmet Sonmez', role: 'Co-Founder & CEO', init: 'MS' },
-    { name: 'Gary Chen',     role: 'Co-Founder & CTO', init: 'GC' },
-    { name: 'Kaylee McNa',   role: 'Head of Product',  init: 'KM' },
-    { name: 'Rami Hawi',     role: 'Head of Growth',   init: 'RH' },
+    { name: 'Gary Chen', role: 'Co-Founder & CTO', init: 'GC' },
+    { name: 'Kaylee McNa', role: 'Head of Product', init: 'KM' },
+    { name: 'Rami Hawi', role: 'Head of Growth', init: 'RH' },
   ]
 
   return (
     <>
       <Head>
         <title>Ankergy — Know every watt. Save every dollar.</title>
-        <meta name="description" content="Smart plugs and a thermostat that pay for themselves. $0 upfront — pay monthly from what you save." />
+        <meta name="description" content="Smart plugs and a thermostat that pay for themselves. $0 upfront." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
       </Head>
 
-      {/* NAV */}
-      <nav className={scrolled ? `${styles.nav} ${styles['nav--scrolled']}` : styles.nav}>
-        <div className={styles['nav__inner']}>
-          <img src="/ankergy-logo.png" alt="Ankergy" className={styles['nav__logo']} style={{height:"28px",width:"auto"}} />
-          <div className={styles['nav__links']}>
-            <a href="#how">How it works</a>
-            <a href="#products">Products</a>
-            <a href="#savings">Savings</a>
-            <a href="#team">Team</a>
+      <nav style={{
+        position:'fixed',top:0,left:0,right:0,zIndex:100,
+        background: scrolled ? 'rgba(5,9,15,0.95)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        transition:'all 0.3s',
+        padding:'0 2rem', height:'68px',
+        display:'flex', alignItems:'center',
+      }}>
+        <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'30px',width:'auto',filter:'brightness(0) invert(1)'}} />
+          <div style={{display:'flex',gap:'2rem',flex:1}}>
+            {['How it works','Products','Savings','Team'].map((l,i) => (
+              <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
+                onMouseOver={e=>e.target.style.color='#fff'} onMouseOut={e=>e.target.style.color='#4A6280'}>{l}</a>
+            ))}
           </div>
-          <a href="#waitlist" className={styles['nav__cta']}>Join Waitlist</a>
+          <a href="#waitlist" style={{
+            fontSize:'0.85rem',fontWeight:600,color:'#0CC0B0',
+            border:'1px solid rgba(12,192,176,0.3)',padding:'0.45rem 1.1rem',
+            borderRadius:'8px',textDecoration:'none',transition:'all 0.2s',whiteSpace:'nowrap',
+          }}>Join Waitlist</a>
         </div>
       </nav>
 
-      <main>
+      <main style={{background:'#05090F',minHeight:'100vh',paddingTop:'68px'}}>
 
-        {/* ── HERO ── */}
-        <section className={styles['hero']}>
-          <div className={styles['hero__bg']}>
-            <div className={styles['hero__orb'] + " " + styles['hero__orb--1']} />
-            <div className={styles['hero__orb'] + " " + styles['hero__orb--2']} />
-            <div className={styles['hero__grid']} />
-          </div>
-          <div className={styles['hero__inner']}>
-            <div className={styles['hero__left']}>
-              <div className={styles['hero__badge']}>Early Access Open</div>
-              <h1 className={styles['hero__title']}>
+        {/* HERO */}
+        <section style={{
+          minHeight:'92vh',display:'flex',alignItems:'center',
+          position:'relative',overflow:'hidden',padding:'4rem 2rem',
+        }}>
+          <div style={{position:'absolute',top:'-100px',left:'-150px',width:'600px',height:'600px',background:'#0CC0B0',borderRadius:'50%',filter:'blur(120px)',opacity:0.07,pointerEvents:'none'}} />
+          <div style={{position:'absolute',top:'5%',right:'-100px',width:'500px',height:'500px',background:'#3B6FE8',borderRadius:'50%',filter:'blur(120px)',opacity:0.07,pointerEvents:'none'}} />
+          <div style={{
+            position:'absolute',inset:0,
+            backgroundImage:'linear-gradient(rgba(12,192,176,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(12,192,176,0.025) 1px,transparent 1px)',
+            backgroundSize:'60px 60px',pointerEvents:'none',
+          }} />
+          <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',position:'relative',zIndex:1}}>
+            <div>
+              <div style={{
+                display:'inline-block',fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.09em',textTransform:'uppercase',
+                color:'#0CC0B0',background:'rgba(12,192,176,0.1)',border:'1px solid rgba(12,192,176,0.2)',
+                padding:'0.3rem 0.9rem',borderRadius:'100px',marginBottom:'1.75rem',
+              }}>Early Access Open</div>
+              <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2.8rem,5vw,4.5rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.03em',lineHeight:1.08,marginBottom:'1.25rem'}}>
                 Know every watt.<br />
-                <span className={styles['hero__accent']}>Save every dollar.</span>
+                <span style={{color:'#0CC0B0'}}>Save every dollar.</span>
               </h1>
-              <p className={styles['hero__sub']}>
-                Ankergy ships smart plugs and a thermostat to your home — then the app optimizes everything automatically. Pay <strong>$0 upfront.</strong> Pay monthly from what you save.
+              <p style={{fontSize:'1.05rem',color:'#4A6280',maxWidth:'480px',marginBottom:'2.5rem',lineHeight:1.75}}>
+                Ankergy ships smart plugs and a thermostat to your home — the app optimizes everything automatically. Pay <strong style={{color:'#fff'}}>$0 upfront.</strong> Pay monthly from what you save.
               </p>
-              <div className={styles['hero__stats']}>
-                <div className={styles['hero__stat']}>
-                  <span className={styles['hero__statnum']}>$61+</span>
-                  <span className={styles['hero__statlbl']}>avg monthly savings</span>
-                </div>
-                <div className={styles['hero__statdiv']} />
-                <div className={styles['hero__stat']}>
-                  <span className={styles['hero__statnum']}>2 mo</span>
-                  <span className={styles['hero__statlbl']}>avg payback period</span>
-                </div>
-                <div className={styles['hero__statdiv']} />
-                <div className={styles['hero__stat']}>
-                  <span className={styles['hero__statnum']}>$0</span>
-                  <span className={styles['hero__statlbl']}>upfront cost</span>
-                </div>
+              <div style={{display:'flex',alignItems:'center',gap:'2rem',marginBottom:'2.5rem',flexWrap:'wrap'}}>
+                {[['$61+','avg monthly savings'],['2 mo','avg payback'],['$0','upfront cost']].map(([n,l],i) => (
+                  <div key={i} style={{display:'flex',flexDirection:'column',gap:'0.15rem'}}>
+                    <span style={{fontFamily:'Sora,sans-serif',fontSize:'2rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',lineHeight:1}}>{n}</span>
+                    <span style={{fontSize:'0.7rem',color:'#4A6280',textTransform:'uppercase',letterSpacing:'0.07em'}}>{l}</span>
+                  </div>
+                ))}
               </div>
-              <div className={styles['hero__actions']}>
-                <a href="#waitlist" className={styles['btn'] + " " + styles['btn--primary']}>Get Early Access →</a>
-                <a href="#how" className={styles['btn'] + " " + styles['btn--ghost']}>See how it works</a>
+              <div style={{display:'flex',gap:'0.85rem',flexWrap:'wrap'}}>
+                <a href="#waitlist" style={{
+                  background:'#0CC0B0',color:'#05090F',fontWeight:700,fontSize:'0.95rem',
+                  padding:'0.85rem 1.8rem',borderRadius:'12px',textDecoration:'none',transition:'all 0.2s',
+                }}>Get Early Access →</a>
+                <a href="#how-it-works" style={{
+                  background:'transparent',color:'#C8D8E8',fontWeight:600,fontSize:'0.95rem',
+                  padding:'0.85rem 1.8rem',borderRadius:'12px',textDecoration:'none',
+                  border:'1px solid rgba(255,255,255,0.08)',transition:'all 0.2s',
+                }}>See how it works</a>
               </div>
             </div>
-            <div className={styles['hero__right']}>
-              <div className={styles['hero__phone']}>
-                <div className={styles['hero__phone-notch']} />
-                <div className={styles['hero__phone-screen']}>
-                  <div className={styles['hero__applogo']}>ANKERGY⚡</div>
-                  <p className={styles['hero__apptag']}>Know every watt. Save every dollar.</p>
-                  <div className={styles['hero__bars']}>
+
+            {/* Phone mockup */}
+            <div style={{display:'flex',justifyContent:'center'}}>
+              <div style={{
+                width:'260px',background:'#060C1A',borderRadius:'40px',
+                border:'6px solid #1A2638',
+                boxShadow:'0 0 0 1px #243045, 0 40px 80px rgba(0,0,0,0.6), 0 0 80px rgba(12,192,176,0.08)',
+                overflow:'hidden',
+              }}>
+                <div style={{width:'90px',height:'24px',background:'#060C1A',borderRadius:'0 0 14px 14px',margin:'0 auto'}} />
+                <div style={{padding:'8px 18px 24px'}}>
+                  <div style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:800,color:'#fff',textAlign:'center',marginBottom:'3px'}}>ANKERGY⚡</div>
+                  <div style={{fontSize:'9px',color:'#4A6280',textAlign:'center',marginBottom:'14px'}}>Know every watt. Save every dollar.</div>
+                  <div style={{display:'flex',alignItems:'flex-end',gap:'3px',height:'70px',marginBottom:'12px',justifyContent:'center'}}>
                     {[60,80,95,70,100,85,75,90,65,88,72,95].map((h,i) => (
-                      <div key={i} className={styles['hero__bar']} style={{height:`${h}%`, opacity: i===5?1:0.5+i*0.04}} />
+                      <div key={i} style={{flex:1,background:'linear-gradient(to top,#1A4FD8,#0CC0B0)',borderRadius:'3px 3px 0 0',height:`${h}%`,opacity:0.5+i*0.04}} />
                     ))}
                   </div>
-                  <div className={styles['hero__appcards']}>
-                    <div className={styles['hero__appcard']}>
-                      <div className={styles['hero__appcardlbl']}>LIVE</div>
-                      <div className={styles['hero__appcardval']}>3.0kW</div>
-                    </div>
-                    <div className={styles['hero__appcard'] + " " + styles['hero__appcard--mid']}>
-                      <div className={styles['hero__appcardlbl']}>TODAY</div>
-                      <div className={styles['hero__appcardval']}>$4.82</div>
-                    </div>
-                    <div className={styles['hero__appcard']}>
-                      <div className={styles['hero__appcardlbl']}>SAVED</div>
-                      <div className={styles['hero__appcardval'] + " " + styles['hero__appcardval--green']}>$12/mo</div>
-                    </div>
+                  <div style={{display:'flex',gap:'5px',marginBottom:'12px'}}>
+                    {[['LIVE','3.0kW',false],['TODAY','$4.82',true],['SAVED','$12/mo',false]].map(([l,v,mid],i) => (
+                      <div key={i} style={{flex:1,background:mid?'#1A2E50':'#0D1829',borderRadius:'9px',padding:'7px 5px',textAlign:'center',border:`1px solid ${mid?'rgba(59,111,232,0.3)':'rgba(255,255,255,0.05)'}`}}>
+                        <div style={{fontSize:'6px',color:'#4A6280',fontWeight:700,letterSpacing:'0.06em',marginBottom:'2px'}}>{l}</div>
+                        <div style={{fontSize:'11px',fontWeight:700,color:l==='SAVED'?'#4ADE80':'#fff'}}>{v}</div>
+                      </div>
+                    ))}
                   </div>
-                  <div className={styles['hero__appbtn']}>Get Started →</div>
+                  <div style={{background:'#3B6FE8',color:'#fff',borderRadius:'9px',padding:'9px',fontSize:'10px',fontWeight:700,textAlign:'center'}}>Get Started →</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── MARQUEE ── */}
-        <div className={styles['marquee']}>
-          <div className={styles['marquee__track']}>
+        {/* MARQUEE */}
+        <div style={{overflow:'hidden',borderTop:'1px solid rgba(255,255,255,0.05)',borderBottom:'1px solid rgba(255,255,255,0.05)',padding:'1rem 0',background:'rgba(12,192,176,0.02)'}}>
+          <div style={{display:'flex',gap:0,whiteSpace:'nowrap',animation:'marquee 30s linear infinite'}}>
             {['$0 Upfront','Pay As You Save','Smart Scheduling','22% Bill Reduction','10 Smart Plugs','1 Thermostat','Real-Time Monitoring','Off-Peak Automation','$0 Upfront','Pay As You Save','Smart Scheduling','22% Bill Reduction','10 Smart Plugs','1 Thermostat','Real-Time Monitoring','Off-Peak Automation'].map((t,i) => (
-              <span key={i} className={styles['marquee__item']}>{t} <span className={styles['marquee__dot']}>·</span></span>
+              <span key={i} style={{fontSize:'0.78rem',fontWeight:600,color:'#4A6280',padding:'0 1.5rem',letterSpacing:'0.05em',textTransform:'uppercase'}}>
+                {t} <span style={{color:'#0CC0B0',marginLeft:'1.5rem'}}>·</span>
+              </span>
             ))}
           </div>
         </div>
 
-        {/* ── HOW IT WORKS ── */}
-        <section id="how" className={styles['section']}>
-          <div className={styles['container']}>
-            <div className={styles['section__head']}>
-              <p className={styles['eyebrow']}>How it works</p>
-              <h2 className={styles['section__title']}>Three steps to a lower bill</h2>
-            </div>
-            <div className={styles['steps']}>
-              <div className={styles['step']}>
-                <div className={styles['step__line']} />
-                <div className={styles['step__left']}>
-                  <span className={styles['step__tag']}>Step 1</span>
-                  <h3 className={styles['step__title']}>Get the hardware free</h3>
-                  <p className={styles['step__body']}>We ship 10 smart plugs (SP-1) and a thermostat (T-1) directly to your door. You pay nothing upfront.</p>
-                </div>
-                <div className={styles['step__right']}>
-                  <div className={styles['step__icon']}>📦</div>
-                </div>
-              </div>
-              <div className={styles['step']}>
-                <div className={styles['step__line']} />
-                <div className={styles['step__left']}>
-                  <span className={styles['step__tag']}>Step 2</span>
-                  <h3 className={styles['step__title']}>App optimizes your usage</h3>
-                  <p className={styles['step__body']}>Ankergy learns your home's patterns and automatically shifts high-draw devices to off-peak rate windows.</p>
-                </div>
-                <div className={styles['step__right']}>
-                  <div className={styles['step__icon']}>📱</div>
-                </div>
-              </div>
-              <div className={styles['step']}>
-                <div className={styles['step__line']} />
-                <div className={styles['step__left']}>
-                  <span className={styles['step__tag']}>Step 3</span>
-                  <h3 className={styles['step__title']}>Pay from your savings</h3>
-                  <p className={styles['step__body']}>Monthly payments are drawn directly from what you saved on your bill. No savings? No charge.</p>
-                </div>
-                <div className={styles['step__right']}>
-                  <div className={styles['step__icon']}>💸</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PRODUCTS ── */}
-        <section id="products" className={styles['section'] + " " + styles['section--dark']}>
-          <div className={styles['container']}>
-            <div className={styles['section__head']}>
-              <p className={styles['eyebrow']}>The Ankergy Bundle</p>
-              <h2 className={styles['section__title']}>Hardware that pays for itself</h2>
-            </div>
-            <div className={styles['products']}>
-              <div className={styles['product']}>
-                <div className={styles['product__img-wrap'] + " " + styles['product__img-wrap--plug']}>
-                  <img src="/smart-plug.png" alt="Ankergy Smart Plug SP-1" className={styles['product__img']} />
-                </div>
-                <div className={styles['product__info']}>
-                  <div className={styles['product__badge'] + " " + styles['product__badge--teal']}>SP-1 · 10 units</div>
-                  <h3 className={styles['product__name']}>Smart Plug</h3>
-                  <p className={styles['product__desc']}>Wi-Fi enabled plugs that track usage and let the app schedule your devices intelligently. Works with any standard outlet.</p>
-                  <ul className={styles['product__feats']}>
-                    <li>Real-time energy monitoring</li>
-                    <li>Remote on/off control</li>
-                    <li>Schedule automation</li>
-                    <li>Works with Alexa & Google Home</li>
-                  </ul>
-                  <div className={styles['product__price']}>$4 <span>/ unit</span></div>
-                </div>
-              </div>
-              <div className={styles['product'] + " " + styles['product--flip']}>
-                <div className={styles['product__info']}>
-                  <div className={styles['product__badge'] + " " + styles['product__badge--amber']}>T-1 · 1 unit</div>
-                  <h3 className={styles['product__name']}>Smart Thermostat</h3>
-                  <p className={styles['product__desc']}>The single biggest lever on your energy bill. The T-1 learns your schedule and adjusts automatically to cut HVAC costs.</p>
-                  <ul className={styles['product__feats']}>
-                    <li>AI-powered scheduling</li>
-                    <li>Geo-fencing away mode</li>
-                    <li>Humidity & air quality sensors</li>
-                    <li>Works with all HVAC systems</li>
-                  </ul>
-                  <div className={styles['product__price'] + " " + styles['product__price--amber']}>$70 <span>/ unit</span></div>
-                </div>
-                <div className={styles['product__img-wrap'] + " " + styles['product__img-wrap--thermo']}>
-                  <img src="/thermostat.webp" alt="Ankergy Smart Thermostat T-1" className={styles['product__img']} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── APP SCREENS ── */}
-        <section className={styles['section']}>
-          <div className={styles['container']}>
-            <div className={styles['section__head']}>
-              <p className={styles['eyebrow']}>The App</p>
-              <h2 className={styles['section__title']}>Everything in one place</h2>
-              <p className={styles['section__sub']}>Real-time tracking, smart tips, and savings breakdown — all from your phone.</p>
-            </div>
-            <div className={styles['appscreens']}>
+        {/* HOW IT WORKS */}
+        <section id="how-it-works" style={{padding:'7rem 2rem'}}>
+          <div style={{maxWidth:'1120px',margin:'0 auto'}}>
+            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>How it works</p>
+            <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'4rem'}}>Three steps to a lower bill</h2>
+            <div>
               {[
-                { title: 'Live Dashboard', desc: 'See exactly what\'s consuming power, right now.' },
-                { title: 'Smart Tips', desc: 'Personalized actions that add up to real savings.' },
-                { title: 'Pay As You Save', desc: 'Transparent billing tied directly to your savings.' },
+                {tag:'Step 1',ico:'📦',title:'Get the hardware free',body:'We ship 10 smart plugs (SP-1) and a thermostat (T-1) directly to your door. You pay nothing upfront — no credit card required.'},
+                {tag:'Step 2',ico:'📱',title:'App optimizes your usage',body:'Ankergy learns your home\'s patterns and automatically shifts high-draw devices to off-peak rate windows, cutting your bill passively.'},
+                {tag:'Step 3',ico:'💸',title:'Pay from your savings',body:'Monthly payments are drawn directly from what you saved on your bill. No savings? No charge. It\'s that simple.'},
               ].map((s,i) => (
-                <div key={i} className={styles['appscreen']}>
-                  <div className={styles['appscreen__phone']}>
-                    <div className={styles['appscreen__notch']} />
-                    <div className={styles['appscreen__content']}>
-                      <div className={styles['appscreen__num']}>0{i+1}</div>
-                      <div className={styles['appscreen__title']}>{s.title}</div>
-                      <div className={styles['appscreen__desc']}>{s.desc}</div>
-                    </div>
+                <div key={i} style={{
+                  display:'grid',gridTemplateColumns:'1fr auto',gap:'4rem',alignItems:'center',
+                  padding:'3rem 0 3rem 2rem',
+                  borderBottom:'1px solid rgba(255,255,255,0.05)',
+                  borderLeft:'2px solid transparent',
+                  transition:'border-color 0.2s',
+                  cursor:'default',
+                }}
+                  onMouseOver={e=>e.currentTarget.style.borderLeftColor='#0CC0B0'}
+                  onMouseOut={e=>e.currentTarget.style.borderLeftColor='transparent'}
+                >
+                  <div>
+                    <span style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#0CC0B0',display:'block',marginBottom:'0.75rem'}}>{s.tag}</span>
+                    <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'1.75rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',marginBottom:'0.75rem',lineHeight:1.2}}>{s.title}</h3>
+                    <p style={{fontSize:'0.95rem',color:'#4A6280',lineHeight:1.7,maxWidth:'520px'}}>{s.body}</p>
                   </div>
+                  <div style={{
+                    width:'72px',height:'72px',borderRadius:'18px',
+                    background:'#0C1524',border:'1px solid rgba(12,192,176,0.12)',
+                    display:'flex',alignItems:'center',justifyContent:'center',fontSize:'2rem',
+                    flexShrink:0,
+                  }}>{s.ico}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── SAVINGS CALC ── */}
-        <section id="savings" className={styles['section'] + " " + styles['section--dark']}>
-          <div className={styles['container']}>
-            <div className={styles['savings']}>
-              <div className={styles['savings__left']}>
-                <p className={styles['eyebrow']}>Savings calculator</p>
-                <h2 className={styles['section__title']}>What could you save?</h2>
-                <p className={styles['savings__sub']}>Ankergy users cut their electricity bill by an average of 22% in the first month. Slide to see your potential savings.</p>
-                <div className={styles['savings__bignum']}>${savings}<span>/mo</span></div>
-                <p className={styles['savings__bignumlbl']}>estimated monthly savings</p>
-                <div className={styles['savings__row']}>
-                  <span>Annual savings</span><strong>${annual}</strong>
-                </div>
-                <div className={styles['savings__row']}>
-                  <span>Payback period</span><strong className={styles['savings__green']}>{payback} months</strong>
+        {/* PRODUCTS */}
+        <section id="products" style={{padding:'7rem 2rem',background:'#080E1A'}}>
+          <div style={{maxWidth:'1120px',margin:'0 auto'}}>
+            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>The Ankergy Bundle</p>
+            <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'5rem'}}>Hardware that pays for itself</h2>
+
+            {/* Smart Plug */}
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center',marginBottom:'6rem'}}>
+              <div style={{borderRadius:'24px',overflow:'hidden',background:'#F0F0F0',aspectRatio:'1',display:'flex',alignItems:'center',justifyContent:'center',padding:'3rem'}}>
+                <img src="/smart-plug.png" alt="Ankergy Smart Plug SP-1" style={{width:'100%',height:'100%',objectFit:'contain'}} />
+              </div>
+              <div>
+                <div style={{display:'inline-block',fontSize:'0.72rem',fontWeight:700,letterSpacing:'0.07em',textTransform:'uppercase',color:'#0CC0B0',background:'rgba(12,192,176,0.1)',border:'1px solid rgba(12,192,176,0.2)',padding:'0.25rem 0.75rem',borderRadius:'100px',marginBottom:'1rem'}}>SP-1 · 10 units</div>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'2.5rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',lineHeight:1.1,marginBottom:'1rem'}}>Smart Plug</h3>
+                <p style={{fontSize:'1rem',color:'#4A6280',lineHeight:1.7,marginBottom:'1.5rem'}}>Wi-Fi enabled plugs that track usage and let the app schedule your devices intelligently. Works with any standard outlet.</p>
+                <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'0.6rem',marginBottom:'2rem',padding:0}}>
+                  {['Real-time energy monitoring','Remote on/off control','Schedule automation','Works with Alexa & Google Home'].map((f,i) => (
+                    <li key={i} style={{fontSize:'0.9rem',color:'#7A9DB8',display:'flex',alignItems:'center',gap:'0.5rem'}}>
+                      <span style={{color:'#0CC0B0',fontWeight:700,fontSize:'0.8rem'}}>✓</span>{f}
+                    </li>
+                  ))}
+                </ul>
+                <div style={{fontFamily:'Sora,sans-serif',fontSize:'2.8rem',fontWeight:800,color:'#0CC0B0'}}>
+                  $4 <span style={{fontSize:'1rem',fontWeight:400,color:'#4A6280',fontFamily:'Inter,sans-serif'}}>/ unit</span>
                 </div>
               </div>
-              <div className={styles['savings__right']}>
-                <div className={styles['savings__card']}>
-                  <p className={styles['savings__cardlbl']}>Your monthly bill</p>
-                  <div className={styles['savings__cardamt']}>${bill}</div>
-                  <input
-                    type="range" min="80" max="500" step="10"
-                    value={bill}
-                    onChange={e => setBill(Number(e.target.value))}
-                    className={styles['savings__slider']}
-                  />
-                  <div className={styles['savings__sliderrange']}><span>$80</span><span>$500</span></div>
-                  <div className={styles['savings__breakdown']}>
-                    <div className={styles['savings__brow']}>
-                      <span>Monthly savings (22%)</span>
-                      <span className={styles['savings__green']}>${savings}</span>
-                    </div>
-                    <div className={styles['savings__brow']}>
-                      <span>Annual savings</span>
-                      <span className={styles['savings__green']}>${annual}</span>
-                    </div>
-                    <div className={styles['savings__bdiv']} />
-                    <div className={styles['savings__brow']}>
-                      <span style={{fontWeight:600,color:'#fff'}}>Pays for itself in</span>
-                      <span className={styles['savings__green'] + " " + styles['savings__bold']}>{payback} months</span>
-                    </div>
-                  </div>
+            </div>
+
+            {/* Thermostat */}
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
+              <div>
+                <div style={{display:'inline-block',fontSize:'0.72rem',fontWeight:700,letterSpacing:'0.07em',textTransform:'uppercase',color:'#F4A261',background:'rgba(244,162,97,0.1)',border:'1px solid rgba(244,162,97,0.2)',padding:'0.25rem 0.75rem',borderRadius:'100px',marginBottom:'1rem'}}>T-1 · 1 unit</div>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'2.5rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',lineHeight:1.1,marginBottom:'1rem'}}>Smart Thermostat</h3>
+                <p style={{fontSize:'1rem',color:'#4A6280',lineHeight:1.7,marginBottom:'1.5rem'}}>The single biggest lever on your energy bill. The T-1 learns your schedule and adjusts automatically to cut HVAC costs.</p>
+                <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'0.6rem',marginBottom:'2rem',padding:0}}>
+                  {['AI-powered scheduling','Geo-fencing away mode','Humidity & air quality sensors','Works with all HVAC systems'].map((f,i) => (
+                    <li key={i} style={{fontSize:'0.9rem',color:'#7A9DB8',display:'flex',alignItems:'center',gap:'0.5rem'}}>
+                      <span style={{color:'#F4A261',fontWeight:700,fontSize:'0.8rem'}}>✓</span>{f}
+                    </li>
+                  ))}
+                </ul>
+                <div style={{fontFamily:'Sora,sans-serif',fontSize:'2.8rem',fontWeight:800,color:'#F4A261'}}>
+                  $70 <span style={{fontSize:'1rem',fontWeight:400,color:'#4A6280',fontFamily:'Inter,sans-serif'}}>/ unit</span>
+                </div>
+              </div>
+              <div style={{borderRadius:'24px',overflow:'hidden',background:'#E8EDE8',aspectRatio:'1.5',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                <img src="/thermostat.webp" alt="Ankergy Smart Thermostat T-1" style={{width:'100%',height:'100%',objectFit:'cover'}} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SAVINGS */}
+        <section id="savings" style={{padding:'7rem 2rem'}}>
+          <div style={{maxWidth:'1120px',margin:'0 auto',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6rem',alignItems:'center'}}>
+            <div>
+              <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>Savings calculator</p>
+              <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'1rem'}}>What could you save?</h2>
+              <p style={{color:'#4A6280',fontSize:'0.95rem',lineHeight:1.7,marginBottom:'2rem'}}>Ankergy users cut their electricity bill by an average of 22% in the first month.</p>
+              <div style={{fontFamily:'Sora,sans-serif',fontSize:'4rem',fontWeight:800,color:'#0CC0B0',letterSpacing:'-0.03em',lineHeight:1,marginBottom:'0.25rem'}}>
+                ${savings}<span style={{fontSize:'1.5rem',color:'#4A6280',fontFamily:'Inter,sans-serif',fontWeight:400}}>/mo</span>
+              </div>
+              <p style={{fontSize:'0.72rem',color:'#4A6280',textTransform:'uppercase',letterSpacing:'0.07em',marginBottom:'2rem'}}>estimated monthly savings</p>
+              <div style={{display:'flex',flexDirection:'column',gap:'0.75rem'}}>
+                <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.9rem',color:'#4A6280'}}>
+                  <span>Annual savings</span><strong style={{color:'#fff'}}>${annual}</strong>
+                </div>
+                <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.9rem',color:'#4A6280'}}>
+                  <span>Payback period</span><strong style={{color:'#4ADE80'}}>{payback} months</strong>
+                </div>
+              </div>
+            </div>
+            <div style={{background:'#0C1524',border:'1px solid rgba(12,192,176,0.12)',borderRadius:'24px',padding:'2.5rem'}}>
+              <p style={{fontSize:'0.75rem',fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'#4A6280',marginBottom:'0.5rem'}}>Your monthly bill</p>
+              <div style={{fontFamily:'Sora,sans-serif',fontSize:'3rem',fontWeight:800,color:'#fff',letterSpacing:'-0.02em',marginBottom:'1.5rem'}}>${bill}</div>
+              <input type="range" min="80" max="500" step="10" value={bill} onChange={e=>setBill(Number(e.target.value))}
+                style={{width:'100%',marginBottom:'0.5rem',accentColor:'#0CC0B0',cursor:'pointer'}} />
+              <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.75rem',color:'#4A6280',marginBottom:'1.75rem'}}>
+                <span>$80</span><span>$500</span>
+              </div>
+              <div style={{display:'flex',flexDirection:'column',gap:'0.75rem'}}>
+                <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.9rem',color:'#4A6280'}}>
+                  <span>Monthly savings (22%)</span><span style={{color:'#4ADE80',fontWeight:700}}>${savings}</span>
+                </div>
+                <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.9rem',color:'#4A6280'}}>
+                  <span>Annual savings</span><span style={{color:'#4ADE80',fontWeight:700}}>${annual}</span>
+                </div>
+                <div style={{height:'1px',background:'rgba(12,192,176,0.1)',margin:'0.25rem 0'}} />
+                <div style={{display:'flex',justifyContent:'space-between',fontSize:'0.9rem'}}>
+                  <span style={{fontWeight:600,color:'#fff'}}>Pays for itself in</span>
+                  <span style={{color:'#4ADE80',fontWeight:700,fontSize:'1rem'}}>{payback} months</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── TEAM ── */}
-        <section id="team" className={styles['section']}>
-          <div className={styles['container']}>
-            <div className={styles['section__head']}>
-              <p className={styles['eyebrow']}>The team</p>
-              <h2 className={styles['section__title']}>Built by people who care about energy</h2>
-            </div>
-            <div className={styles['team']}>
+        {/* TEAM */}
+        <section id="team" style={{padding:'7rem 2rem',background:'#080E1A'}}>
+          <div style={{maxWidth:'1120px',margin:'0 auto'}}>
+            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>The team</p>
+            <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2rem,4vw,3rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.025em',lineHeight:1.12,marginBottom:'4rem'}}>Built by people who care about energy</h2>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}}>
               {team.map((m,i) => (
-                <div key={i} className={styles['member']}>
-                  <div className={styles['member__avatar']}>{m.init}</div>
-                  <div className={styles['member__name']}>{m.name}</div>
-                  <div className={styles['member__role']}>{m.role}</div>
+                <div key={i} style={{
+                  background:'#0C1524',border:'1px solid rgba(12,192,176,0.12)',
+                  borderRadius:'20px',padding:'2.5rem 1.5rem',textAlign:'center',
+                  transition:'all 0.2s',cursor:'default',
+                }}
+                  onMouseOver={e=>{e.currentTarget.style.borderColor='rgba(12,192,176,0.3)';e.currentTarget.style.transform='translateY(-4px)'}}
+                  onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(12,192,176,0.12)';e.currentTarget.style.transform='translateY(0)'}}
+                >
+                  <div style={{
+                    width:'64px',height:'64px',borderRadius:'50%',
+                    background:'linear-gradient(135deg,#0CC0B0,#3B6FE8)',
+                    display:'flex',alignItems:'center',justifyContent:'center',
+                    fontFamily:'Sora,sans-serif',fontSize:'1.1rem',fontWeight:800,color:'#fff',
+                    margin:'0 auto 1.25rem',
+                  }}>{m.init}</div>
+                  <div style={{fontFamily:'Sora,sans-serif',fontSize:'1rem',fontWeight:700,color:'#fff',marginBottom:'0.4rem'}}>{m.name}</div>
+                  <div style={{fontSize:'0.82rem',color:'#4A6280'}}>{m.role}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── WAITLIST ── */}
-        <section id="waitlist" className={styles['waitlist']}>
-          <div className={styles['waitlist__orb']} />
-          <div className={styles['container']}>
-            <div className={styles['waitlist__inner']}>
-              <p className={styles['eyebrow']}>Limited early access</p>
-              <h2 className={styles['waitlist__title']}>Be the first to save.</h2>
-              <p className={styles['waitlist__sub']}>Rolling out to a limited number of homes first. Drop your email and we'll reach out when your spot is ready.</p>
-              {submitted ? (
-                <div className={styles['waitlist__success']}>✓ You're on the list — we'll be in touch soon.</div>
-              ) : (
-                <form className={styles['waitlist__form']} onSubmit={e=>{e.preventDefault();if(email)setSubmitted(true)}}>
-                  <input type="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} className={styles['waitlist__input']} required />
-                  <button type="submit" className={styles['btn'] + " " + styles['btn--primary']}>Join Waitlist →</button>
-                </form>
-              )}
-              <p className={styles['waitlist__note']}>No spam. No commitments. Cancel anytime.</p>
-            </div>
+        {/* WAITLIST */}
+        <section id="waitlist" style={{padding:'9rem 2rem',textAlign:'center',position:'relative',overflow:'hidden',borderTop:'1px solid rgba(255,255,255,0.05)'}}>
+          <div style={{position:'absolute',bottom:'-200px',left:'50%',transform:'translateX(-50%)',width:'800px',height:'600px',background:'radial-gradient(circle,rgba(12,192,176,0.06) 0%,transparent 70%)',pointerEvents:'none'}} />
+          <div style={{maxWidth:'560px',margin:'0 auto',position:'relative',zIndex:1}}>
+            <p style={{fontSize:'0.7rem',fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#0CC0B0',marginBottom:'0.75rem'}}>Limited early access</p>
+            <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(2.5rem,5vw,4rem)',fontWeight:800,color:'#fff',letterSpacing:'-0.03em',lineHeight:1.08,marginBottom:'1rem'}}>Be the first to save.</h2>
+            <p style={{color:'#4A6280',fontSize:'1rem',marginBottom:'2.5rem',lineHeight:1.7}}>Rolling out to a limited number of homes first. Drop your email and we will reach out when your spot is ready.</p>
+            {submitted ? (
+              <div style={{background:'rgba(74,222,128,0.08)',border:'1px solid rgba(74,222,128,0.2)',color:'#4ADE80',padding:'1rem 1.5rem',borderRadius:'12px',fontWeight:600,marginBottom:'1rem'}}>
+                You are on the list — we will be in touch soon.
+              </div>
+            ) : (
+              <form style={{display:'flex',gap:'0.75rem',marginBottom:'1rem'}} onSubmit={e=>{e.preventDefault();if(email)setSubmitted(true)}}>
+                <input type="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} required
+                  style={{flex:1,background:'#0C1524',border:'1px solid rgba(12,192,176,0.2)',borderRadius:'12px',padding:'0.875rem 1.25rem',fontSize:'1rem',color:'#fff',fontFamily:'Inter,sans-serif',outline:'none'}} />
+                <button type="submit" style={{background:'#0CC0B0',color:'#05090F',fontWeight:700,fontSize:'0.95rem',padding:'0.875rem 1.75rem',borderRadius:'12px',border:'none',cursor:'pointer',whiteSpace:'nowrap',fontFamily:'Inter,sans-serif'}}>
+                  Join Waitlist →
+                </button>
+              </form>
+            )}
+            <p style={{fontSize:'0.78rem',color:'#4A6280'}}>No spam. No commitments. Cancel anytime.</p>
           </div>
         </section>
 
       </main>
 
-      {/* FOOTER */}
-      <footer className={styles['footer']}>
-        <div className={styles['container']}>
-          <div className={styles['footer__inner']}>
-            <img src="/ankergy-logo.png" alt="Ankergy" className={styles['footer__logo']} style={{height:"28px",width:"auto"}} />
-            <p className={styles['footer__tag']}>Smart energy for every home.</p>
-            <p className={styles['footer__copy']}>© 2026 Ankergy. All rights reserved.</p>
-            <a href="mailto:ankergyofficial@gmail.com" className={styles['footer__email']}>ankergyofficial@gmail.com</a>
-          </div>
+      <footer style={{borderTop:'1px solid rgba(255,255,255,0.05)',padding:'3rem 2rem',background:'#05090F'}}>
+        <div style={{maxWidth:'1120px',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',gap:'0.5rem',textAlign:'center'}}>
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'26px',width:'auto',filter:'brightness(0) invert(1)',marginBottom:'0.5rem'}} />
+          <p style={{fontSize:'0.875rem',color:'#4A6280'}}>Smart energy for every home.</p>
+          <a href="mailto:ankergyofficial@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>ankergyofficial@gmail.com</a>
+          <p style={{fontSize:'0.75rem',color:'#4A6280',opacity:0.5}}>© 2026 Ankergy. All rights reserved.</p>
         </div>
       </footer>
+
+      <style jsx global>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: #05090F; }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; }
+      `}</style>
     </>
   )
 }
