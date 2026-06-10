@@ -45,7 +45,7 @@ export default function Home() {
         display:'flex', alignItems:'center',
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'30px',width:'auto',filter:'brightness(0) invert(1)'}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'30px',width:'auto',filter:'invert(1)'}} />
           <div style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
@@ -346,7 +346,7 @@ export default function Home() {
 
       <footer style={{borderTop:'1px solid rgba(255,255,255,0.05)',padding:'3rem 2rem',background:'#05090F'}}>
         <div style={{maxWidth:'1120px',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',gap:'0.5rem',textAlign:'center'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'26px',width:'auto',filter:'brightness(0) invert(1)',marginBottom:'0.5rem'}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'26px',width:'auto',filter:'invert(1)',marginBottom:'0.5rem'}} />
           <p style={{fontSize:'0.875rem',color:'#4A6280'}}>Smart energy for every home.</p>
           <a href="mailto:ankergyofficial@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>ankergyofficial@gmail.com</a>
           <p style={{fontSize:'0.75rem',color:'#4A6280',opacity:0.5}}>© 2026 Ankergy. All rights reserved.</p>
