@@ -174,15 +174,15 @@ export default function Home() {
 
                       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px',marginBottom:'10px'}}>
                         <div style={{background:'#0D1829',borderRadius:'16px',padding:'12px',border:'1px solid rgba(74,222,128,0.15)'}}>
-                          <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#4ADE80',textTransform:'uppercase',marginBottom:'8px'}}>Live Savings</div>
+                          <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#4ADE80',textTransform:'uppercase',marginBottom:'8px'}}>Monthly Savings</div>
                           <div style={{width:'28px',height:'28px',borderRadius:'50%',background:'rgba(74,222,128,0.15)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'14px',marginBottom:'6px'}}>🌿</div>
-                          <div style={{fontSize:'22px',fontWeight:800,color:'#4ADE80',fontFamily:'Sora,sans-serif',lineHeight:1}}>$15.40</div>
-                          <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>est. saved today</div>
+                          <div style={{fontSize:'22px',fontWeight:800,color:'#4ADE80',fontFamily:'Sora,sans-serif',lineHeight:1}}>$40.78</div>
+                          <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>saved this month</div>
                         </div>
                         <div style={{background:'#0D1829',borderRadius:'16px',padding:'12px',border:'1px solid rgba(59,143,255,0.15)'}}>
-                          <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#3B8FFF',textTransform:'uppercase',marginBottom:'8px'}}>Today</div>
-                          <div style={{fontSize:'22px',fontWeight:800,color:'#fff',fontFamily:'Sora,sans-serif',lineHeight:1,marginTop:'8px'}}>$4.82</div>
-                          <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>cost so far</div>
+                          <div style={{fontSize:'8px',fontWeight:700,letterSpacing:'0.08em',color:'#3B8FFF',textTransform:'uppercase',marginBottom:'8px'}}>Monthly Cost</div>
+                          <div style={{fontSize:'22px',fontWeight:800,color:'#fff',fontFamily:'Sora,sans-serif',lineHeight:1,marginTop:'8px'}}>$212.34</div>
+                          <div style={{fontSize:'8px',color:'#4A6280',marginTop:'3px'}}>this month</div>
                           <div style={{background:'rgba(59,111,232,0.2)',borderRadius:'8px',padding:'3px 8px',marginTop:'6px',display:'inline-flex',alignItems:'center',gap:'4px'}}>
                             <span style={{fontSize:'8px',color:'#3B8FFF'}}>⚡</span>
                             <span style={{fontSize:'8px',color:'#3B8FFF',fontWeight:700}}>9.53 kW</span>
