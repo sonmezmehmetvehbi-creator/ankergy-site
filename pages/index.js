@@ -45,7 +45,7 @@ export default function Home() {
         display:'flex', alignItems:'center',
       }}>
         <div style={{maxWidth:'1120px',margin:'0 auto',width:'100%',display:'flex',alignItems:'center',gap:'2rem'}}>
-          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'32px',width:'auto'}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'40px',width:'auto'}} />
           <div style={{display:'flex',gap:'2rem',flex:1}}>
             {['How it works','Products','Savings','Team'].map((l,i) => (
               <a key={i} href={`#${l.toLowerCase().replace(' ','-')}`} style={{fontSize:'0.875rem',color:'#4A6280',textDecoration:'none',transition:'color 0.2s'}}
@@ -109,32 +109,115 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Phone mockup */}
-            <div style={{display:'flex',justifyContent:'center'}}>
+            {/* iPhone Dashboard */}
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'16px'}}>
+              <img src="/ankergy-logo.png" alt="Ankergy" style={{height:'36px',width:'auto'}} />
               <div style={{
-                width:'260px',background:'#060C1A',borderRadius:'40px',
-                border:'6px solid #1A2638',
-                boxShadow:'0 0 0 1px #243045, 0 40px 80px rgba(0,0,0,0.6), 0 0 80px rgba(12,192,176,0.08)',
+                width:'272px',
+                background:'#080E1C',
+                borderRadius:'50px',
+                border:'8px solid #1A2235',
+                boxShadow:'0 0 0 1.5px #2A3450, 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(12,192,176,0.1)',
                 overflow:'hidden',
+                position:'relative',
               }}>
-                <div style={{width:'90px',height:'24px',background:'#060C1A',borderRadius:'0 0 14px 14px',margin:'0 auto'}} />
-                <div style={{padding:'8px 18px 24px'}}>
-                  <div style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:800,color:'#fff',textAlign:'center',marginBottom:'3px'}}>ANKERGY⚡</div>
-                  <div style={{fontSize:'9px',color:'#4A6280',textAlign:'center',marginBottom:'14px'}}>Know every watt. Save every dollar.</div>
-                  <div style={{display:'flex',alignItems:'flex-end',gap:'3px',height:'70px',marginBottom:'12px',justifyContent:'center'}}>
-                    {[60,80,95,70,100,85,75,90,65,88,72,95].map((h,i) => (
-                      <div key={i} style={{flex:1,background:'linear-gradient(to top,#1A4FD8,#0CC0B0)',borderRadius:'3px 3px 0 0',height:`${h}%`,opacity:0.5+i*0.04}} />
+                {/* Notch */}
+                <div style={{width:'100px',height:'26px',background:'#080E1C',borderRadius:'0 0 18px 18px',margin:'0 auto',position:'relative',zIndex:10}} />
+                {/* Status bar */}
+                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'2px 18px 8px',fontSize:'10px',fontWeight:600,color:'#fff'}}>
+                  <span>10:26</span>
+                  <div style={{display:'flex',gap:'4px',alignItems:'center'}}>
+                    <span style={{fontSize:'8px'}}>▲▲▲</span>
+                    <span style={{fontSize:'8px'}}>WiFi</span>
+                    <span style={{fontSize:'9px',border:'1px solid rgba(255,255,255,0.4)',borderRadius:'3px',padding:'0 3px'}}>97</span>
+                  </div>
+                </div>
+                {/* Screen content */}
+                <div style={{padding:'0 16px 20px'}}>
+                  {/* Header */}
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'14px'}}>
+                    <div>
+                      <div style={{fontSize:'17px',fontWeight:700,color:'#fff',fontFamily:'Sora,sans-serif'}}>Good morning ⚡</div>
+                      <div style={{fontSize:'9px',color:'#3B8FFF',marginTop:'1px'}}>Day 5 of your billing cycle</div>
+                      <div style={{fontSize:'8px',color:'#4A6280'}}>20148 · Live tracking</div>
+                    </div>
+                    <div style={{width:'28px',height:'28px',borderRadius:'50%',background:'#0D1829',border:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px'}}>👤</div>
+                  </div>
+
+                  {/* Two stat cards */}
+                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px',marginBottom:'10px'}}>
+                    <div style={{background:'#0D1829',borderRadius:'14px',padding:'10px',border:'1px solid rgba(255,255,255,0.06)'}}>
+                      <div style={{fontSize:'7px',fontWeight:700,letterSpacing:'0.08em',color:'#4ADE80',textTransform:'uppercase',marginBottom:'6px'}}>Daily Savings</div>
+                      <div style={{width:'22px',height:'22px',borderRadius:'50%',background:'rgba(74,222,128,0.15)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'10px',marginBottom:'5px'}}>🌿</div>
+                      <div style={{fontSize:'18px',fontWeight:800,color:'#4ADE80',fontFamily:'Sora,sans-serif',lineHeight:1}}>$1.76</div>
+                      <div style={{fontSize:'7px',color:'#4A6280',marginTop:'2px'}}>est. saved today</div>
+                    </div>
+                    <div style={{background:'#0D1829',borderRadius:'14px',padding:'10px',border:'1px solid rgba(255,255,255,0.06)'}}>
+                      <div style={{fontSize:'7px',fontWeight:700,letterSpacing:'0.08em',color:'#3B8FFF',textTransform:'uppercase',marginBottom:'6px'}}>Today</div>
+                      <div style={{fontSize:'18px',fontWeight:800,color:'#fff',fontFamily:'Sora,sans-serif',lineHeight:1,marginTop:'8px'}}>$18.27</div>
+                      <div style={{fontSize:'7px',color:'#4A6280',marginTop:'2px'}}>cost so far</div>
+                      <div style={{background:'#0A1628',borderRadius:'6px',padding:'3px 6px',marginTop:'5px',display:'inline-flex',alignItems:'center',gap:'3px'}}>
+                        <span style={{fontSize:'7px',color:'#3B8FFF'}}>⚡</span>
+                        <span style={{fontSize:'7px',color:'#3B8FFF',fontWeight:600}}>9.53 kW</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Time tabs */}
+                  <div style={{display:'flex',gap:'4px',marginBottom:'10px',background:'#0D1829',borderRadius:'10px',padding:'3px'}}>
+                    {['Day','Week','Month','Year'].map((t,i) => (
+                      <div key={i} style={{flex:1,padding:'4px 0',borderRadius:'8px',background:i===0?'#3B6FE8':'transparent',textAlign:'center',fontSize:'8px',fontWeight:600,color:i===0?'#fff':'#4A6280'}}>{t}</div>
                     ))}
                   </div>
-                  <div style={{display:'flex',gap:'5px',marginBottom:'12px'}}>
-                    {[['LIVE','3.0kW',false],['TODAY','$4.82',true],['SAVED','$12/mo',false]].map(([l,v,mid],i) => (
-                      <div key={i} style={{flex:1,background:mid?'#1A2E50':'#0D1829',borderRadius:'9px',padding:'7px 5px',textAlign:'center',border:`1px solid ${mid?'rgba(59,111,232,0.3)':'rgba(255,255,255,0.05)'}`}}>
-                        <div style={{fontSize:'6px',color:'#4A6280',fontWeight:700,letterSpacing:'0.06em',marginBottom:'2px'}}>{l}</div>
-                        <div style={{fontSize:'11px',fontWeight:700,color:l==='SAVED'?'#4ADE80':'#fff'}}>{v}</div>
+
+                  {/* Cost breakdown */}
+                  <div style={{background:'#0D1829',borderRadius:'14px',padding:'10px',marginBottom:'10px',border:'1px solid rgba(255,255,255,0.06)'}}>
+                    <div style={{fontSize:'8px',fontWeight:700,color:'#fff',marginBottom:'8px'}}>Cost Breakdown — Day</div>
+                    <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
+                      {/* Donut */}
+                      <div style={{position:'relative',width:'52px',height:'52px',flexShrink:0}}>
+                        <svg width="52" height="52" viewBox="0 0 52 52">
+                          <circle cx="26" cy="26" r="20" fill="none" stroke="#1A2A40" strokeWidth="8"/>
+                          <circle cx="26" cy="26" r="20" fill="none" stroke="#3B6FE8" strokeWidth="8"
+                            strokeDasharray="119 6" strokeDashoffset="31" strokeLinecap="round"/>
+                          <circle cx="26" cy="26" r="20" fill="none" stroke="#4ADE80" strokeWidth="8"
+                            strokeDasharray="4 121" strokeDashoffset="-88" strokeLinecap="round"/>
+                        </svg>
+                        <div style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+                          <div style={{fontSize:'8px',fontWeight:800,color:'#fff',lineHeight:1}}>$18.27</div>
+                          <div style={{fontSize:'5px',color:'#4A6280'}}>today</div>
+                        </div>
+                      </div>
+                      {/* Legend */}
+                      <div style={{flex:1,display:'flex',flexDirection:'column',gap:'4px'}}>
+                        {[['#3B6FE8','Central A/C','96%','$17.52'],['#4ADE80','Refrigerator','3%','$0.47'],['#0CC0B0','TV','1%','$0.27']].map(([col,name,pct,val],i) => (
+                          <div key={i} style={{display:'flex',alignItems:'center',gap:'4px'}}>
+                            <div style={{width:'6px',height:'6px',borderRadius:'50%',background:col,flexShrink:0}} />
+                            <span style={{fontSize:'7px',color:'#7A9DB8',flex:1}}>{name}</span>
+                            <span style={{fontSize:'7px',color:'#4A6280'}}>{pct}</span>
+                            <span style={{fontSize:'7px',fontWeight:700,color:'#4ADE80',marginLeft:'4px'}}>{val}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tip card */}
+                  <div style={{background:'#0D1829',borderRadius:'14px',padding:'10px',border:'1px solid rgba(244,162,97,0.15)'}}>
+                    <div style={{fontSize:'7px',fontWeight:700,letterSpacing:'0.08em',color:'#F4A261',textTransform:'uppercase',marginBottom:'4px'}}>💡 Tip for you</div>
+                    <div style={{fontSize:'9px',fontWeight:700,color:'#fff',marginBottom:'3px'}}>Raise your thermostat 2°F</div>
+                    <div style={{fontSize:'7px',color:'#4A6280',lineHeight:1.4}}>Your A/C is your top consumer. Saves <span style={{color:'#4ADE80',fontWeight:700}}>~$79/mo</span>.</div>
+                  </div>
+
+                  {/* Navbar */}
+                  <div style={{display:'flex',justifyContent:'space-around',alignItems:'center',paddingTop:'12px',marginTop:'8px',borderTop:'1px solid rgba(255,255,255,0.05)'}}>
+                    {[['⚡','Home',true],['🏠','Rooms',false],['💰','Savings',false],['📱','Devices',false],['💡','Tips',false]].map(([ico,lbl,active],i) => (
+                      <div key={i} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'2px'}}>
+                        <span style={{fontSize:'12px'}}>{ico}</span>
+                        <span style={{fontSize:'6px',fontWeight:active?700:400,color:active?'#3B6FE8':'#4A6280'}}>{lbl}</span>
                       </div>
                     ))}
                   </div>
-                  <div style={{background:'#3B6FE8',color:'#fff',borderRadius:'9px',padding:'9px',fontSize:'10px',fontWeight:700,textAlign:'center'}}>Get Started →</div>
                 </div>
               </div>
             </div>
