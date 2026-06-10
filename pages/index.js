@@ -39,7 +39,7 @@ export default function Home() {
       {/* NAV */}
       <nav className={scrolled ? `${styles.nav} ${styles['nav--scrolled']}` : styles.nav}>
         <div className={styles['nav__inner']}>
-          <img src="/ankergy-logo.png" alt="Ankergy" className={styles['nav__logo']} style={{filter:"brightness(0) invert(1)"}} />
+          <img src="/ankergy-logo.png" alt="Ankergy" className={styles['nav__logo']} style={{height:"28px",width:"auto"}} />
           <div className={styles['nav__links']}>
             <a href="#how">How it works</a>
             <a href="#products">Products</a>
@@ -346,7 +346,7 @@ export default function Home() {
       <footer className={styles['footer']}>
         <div className={styles['container']}>
           <div className={styles['footer__inner']}>
-            <img src="/ankergy-logo.png" alt="Ankergy" className={styles['footer__logo']} style={{filter:"brightness(0) invert(1)"}} />
+            <img src="/ankergy-logo.png" alt="Ankergy" className={styles['footer__logo']} style={{height:"28px",width:"auto"}} />
             <p className={styles['footer__tag']}>Smart energy for every home.</p>
             <p className={styles['footer__copy']}>© 2026 Ankergy. All rights reserved.</p>
             <a href="mailto:ankergyofficial@gmail.com" className={styles['footer__email']}>ankergyofficial@gmail.com</a>
