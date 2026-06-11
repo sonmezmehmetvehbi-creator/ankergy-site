@@ -453,7 +453,7 @@ export default function Home() {
         <div style={{maxWidth:'1120px',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',gap:'0.5rem',textAlign:'center'}}>
           <img src="/alvera-logo.png" alt="Alvera Energy" style={{height:'28px',width:'auto',marginBottom:'0.5rem'}} />
           <p style={{fontSize:'0.875rem',color:'#4A6280'}}>Smart energy for every home.</p>
-          <a href="mailto:alveraofficial@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>alveraofficial@gmail.com</a>
+          <a href="mailto:alveraenergy@gmail.com" style={{fontSize:'0.85rem',color:'#0CC0B0',textDecoration:'none'}}>alveraenergy@gmail.com</a>
           <p style={{fontSize:'0.75rem',color:'#4A6280',opacity:0.5}}>© 2026 Alvera. All rights reserved.</p>
         </div>
       </footer>
